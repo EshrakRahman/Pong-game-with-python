@@ -32,6 +32,9 @@ ball.color('white')
 ball.penup()
 ball.goto(0, 0)
 
+ball.dx = 0.25
+ball.dy = 0.25
+
 
 # Function
 def paddle_a_up():
@@ -44,6 +47,7 @@ def paddle_a_down():
     y = paddle_a.ycor()
     y -= 20
     paddle_a.sety(y)
+
 
 def paddle_b_up():
     y = paddle_b.ycor()
@@ -68,3 +72,8 @@ window.onkeypress(paddle_b_down, 'Down')
 # Main game loop
 while True:
     window.update()
+
+    # Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
